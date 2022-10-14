@@ -3,10 +3,10 @@
 #include <QApplication>
 #include <QFileOpenEvent>
 
-class MacosApplication : public QApplication {
+class MacOSApplication : public QApplication {
     Q_OBJECT
 public:
-    MacosApplication(int &argc, char *argv[]) : QApplication(argc, argv) {};
+    MacOSApplication(int &argc, char *argv[]) : QApplication(argc, argv) {};
 protected:
     bool event(QEvent *event) {
         if (event->type() == QEvent::FileOpen) {
