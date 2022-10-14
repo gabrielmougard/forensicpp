@@ -1,3 +1,5 @@
+include variables.mk
+
 ##################
 # BUILD forensicpp
 ##################
@@ -14,5 +16,5 @@ ${FORENSICPP_BUILD_CMAKE}:
 		.
 
 build: ${FORENSICPP_BUILD_CMAKE}
-	cd "${BUILD_RELEASE}" && ninja
+	cd "${BUILD_RELEASE_DIR}" && ninja
 
