@@ -2,3 +2,6 @@
 	path = qtbase
 	url = https://github.com/qt/qtbase.git
 	branch = 6.4
+[submodule "csm"]
+	path = csm
+	url = git@github.com:gabrielmougard/csm.git
