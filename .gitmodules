@@ -1,0 +1,4 @@
+[submodule "qtbase"]
+	path = qtbase
+	url = https://github.com/qt/qtbase.git
+	branch = 6.4

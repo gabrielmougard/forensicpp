@@ -1,0 +1,31 @@
+
+
+{
+    "configurations": [
+      {
+        "name": "Macos",
+        "intelliSenseMode": "clang-x64",
+        "includePath": [
+            "/usr/include",
+            "/usr/local/include",
+            "/usr/local/include",
+            // forensicpp
+            "${workspaceRoot}/s2t-obs/src/backend",
+            "${workspaceRoot}/s2t-obs/src/ui",
+            "${workspaceRoot}/s2t-obs/src/utils",
+            "${workspaceRoot}/s2t-obs/src",
+            // 3rd party
+            "${workspaceRoot}/build_release/install/qtbase/include/"
+        ],
+        "compilerPath": "/usr/bin/clang",
+        "cStandard": "c11",
+        "cppStandard": "c++17",
+        "browse": {
+          "path": ["${workspaceFolder}"],
+          "limitSymbolsToIncludedHeaders": true,
+          "databaseFilename": ""
+        }
+      }
+    ],
+    "version": 4
+}

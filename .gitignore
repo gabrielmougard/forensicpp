@@ -1,0 +1,5 @@
+# macos related
+.DS_Store
+
+# build folder
+build_release
