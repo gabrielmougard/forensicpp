@@ -21,7 +21,6 @@
         "cStandard": "c11",
         "cppStandard": "c++17",
         "browse": {
-          "path": ["${workspaceFolder}"],
           "limitSymbolsToIncludedHeaders": true,
           "databaseFilename": ""
         }
@@ -42,7 +41,6 @@
         "cStandard": "c11",
         "cppStandard": "c++17",
         "browse": {
-          "path": ["${workspaceFolder}"],
           "limitSymbolsToIncludedHeaders": true,
           "databaseFilename": ""
         }
