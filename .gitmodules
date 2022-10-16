@@ -1,3 +1,7 @@
 [submodule "csm"]
 	path = csm
 	url = git@github.com:gabrielmougard/csm.git
+[submodule "ftxui"]
+	path = ftxui
+	url = https://github.com/ArthurSonzogni/FTXUI.git
+	branch = master
