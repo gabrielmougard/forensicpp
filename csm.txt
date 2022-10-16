@@ -1,1 +1,1 @@
-qtbase
+ftxui
