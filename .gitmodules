@@ -1,7 +1,3 @@
 [submodule "csm"]
 	path = csm
 	url = git@github.com:gabrielmougard/csm.git
-[submodule "exiv2"]
-	path = exiv2
-	url = https://github.com/Exiv2/exiv2.git
-	branch = main
