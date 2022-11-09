@@ -10,32 +10,31 @@ add_compile_definitions(VERSION_STRING="${VERSION_STRING}")
 # Add path for custom modules
 # list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules/")
 
-find_package(Qt6Widgets REQUIRED)
-find_package(Qt6Core REQUIRED)
-
-# Automatic call to UIC compiler to generate header files for .ui descriptions.
-qt_standard_project_setup()
-set(forensicpp_QRC src/resources/forensicpp.qrc)
-qt6_add_resources(FORENSICPP_QRC_SOURCES ${forensicpp_QRC})
-
+find_package(ftxui REQUIRED)
+get_target_property(FTXUI_COMPONENT_INCLUDES ftxui::component INTERFACE_INCLUDE_DIRECTORIES)
+get_target_property(FTXUI_DOM_INCLUDES ftxui::dom INTERFACE_INCLUDE_DIRECTORIES)
+get_target_property(FTXUI_SCREEN_INCLUDES ftxui::screen INTERFACE_INCLUDE_DIRECTORIES)
 
 set(FORENSICPP_HEADERS
-    src/macosapp.h
+    ${FTXUI_COMPONENT_INCLUDES}
+    ${FTXUI_DOM_INCLUDES}
+    ${FTXUI_SCREEN_INCLUDES}
+    src/color_info_sorted_2d.h
 )
 
 set(FORENSICPP_SRCS
-    src/macosapp.cc
     src/main.cc
 )
 
-add_executable(forensicpp MODULE
+add_executable(forensicpp
     ${FORENSICPP_HEADERS}
     ${FORENSICPP_SRCS}
-    ${FORENSICPP_QRC_SOURCES}
 )
 
 target_link_libraries(forensicpp
-    Qt6::Widgets
+    ftxui::component
+    ftxui::dom
+    ftxui::screen
 )
 
 install(TARGETS forensicpp DESTINATION bin)
