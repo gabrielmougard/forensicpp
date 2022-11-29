@@ -18,3 +18,8 @@ ${FORENSICPP_BUILD_CMAKE}:
 build: ${FORENSICPP_BUILD_CMAKE}
 	cd "${BUILD_RELEASE_DIR}" && ninja
 
+build-debug: ${FORENSICPP_BUILD_CMAKE}
+	cd "${BUILD_RELEASE_DIR}" && ninja -d explain
+
+run: build
+	./"${BUILD_RELEASE_DIR}"/install/forensicpp/bin/forensicpp
