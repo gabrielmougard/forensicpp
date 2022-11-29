@@ -8,16 +8,13 @@
         "includePath": [
           "/usr/include",
           "/usr/local/include",
-          "/usr/lib/x86_64-linux-gnu/glib-2.0/include",
-          "/usr/lib/x86_64-linux-gnu/gstreamer-1.0/include",
-          "/usr/local/include",
           "/usr/include/x86_64-linux-gnu",
             // forensicpp
-          "${workspaceRoot}/forensicpp/src/**",
+          "${workspaceRoot}/forensicpp/include/**",
             // 3rd party
-            "${workspaceRoot}/build_release/install/qtbase/include/**"
+            "${workspaceRoot}/ftxui/include/**"
         ],
-        "compilerPath": "/usr/bin/clang",
+        "compilerPath": "/usr/local/bin/clang",
         "cStandard": "c11",
         "cppStandard": "c++17",
         "browse": {
@@ -30,7 +27,6 @@
         "intelliSenseMode": "clang-x64",
         "includePath": [
             "/usr/include",
-            "/usr/local/include",
             "/usr/local/include",
             // forensicpp
             "${workspaceRoot}/forensicpp/src",

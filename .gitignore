@@ -3,3 +3,6 @@
 
 # build folder
 build_release
+
+# editor
+.vscode
