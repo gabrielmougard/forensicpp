@@ -5,3 +5,6 @@
 	path = ftxui
 	url = https://github.com/ArthurSonzogni/FTXUI.git
 	branch = master
+[submodule "mysql-client"]
+	path = mysql-client
+	url = https://github.com/mysql/mysql-connector-cpp
