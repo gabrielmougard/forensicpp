@@ -1,0 +1,37 @@
+version: '3.3'
+
+services:
+  forensickdb:
+    container_name: forensickdb
+    image: mariadb:latest
+    secrets:
+      - mariadb_forensick_forensick_password
+      - mariadb_forensick_root_password
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role == manager]
+      resources:
+        reservations:
+          memory: 1024M
+        limits:
+          memory: 2048M
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_USER: forensick
+      MYSQL_DATABASE: forensick
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mariadb_forensick_root_password
+      MYSQL_PASSWORD_FILE: /run/secrets/mariadb_forensick_forensick_password
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./docker-entrypoint-initdb.d/createdb.sql:/docker-entrypoint-initdb/createdb.sql
+      - type: bind
+        source: /opt/docker/volumes/mysql
+        target: /var/lib/mysql
+
+secrets:
+  mariadb_forensick_root_password:
+    external: true
+  mariadb_forensick_forensick_password:
+    external: true
