@@ -22,9 +22,16 @@ int main(int argc, const char* argv[]) {
     sql::Driver* driver = sql::mariadb::get_driver_instance();
 
     // Configure Connection
-    std::string database_access = "jdbc:mariadb://" + std::string(DEFAULT_MARIADB_FORENSICK_HOST) + ":" + std::string(DEFAULT_MARIADB_FORENSICK_PORT) + "/" + std::string(DEFAULT_MARIADB_FORENSICK_DATABASE);  
+    std::string database_access = "jdbc:mariadb://" +
+      std::string(DEFAULT_MARIADB_FORENSICK_HOST) + ":" +
+      std::string(DEFAULT_MARIADB_FORENSICK_PORT) +
+      "/" + std::string(DEFAULT_MARIADB_FORENSICK_DATABASE);
+  
     sql::SQLString url(database_access.c_str());
-    sql::Properties properties({{"user", DEFAULT_MARIADB_FORENSICK_USER}, {"password", DEFAULT_MARIADB_FORENSICK_PASSWORD}});
+    sql::Properties properties({
+      {"user", DEFAULT_MARIADB_FORENSICK_USER},
+      {"password", DEFAULT_MARIADB_FORENSICK_PASSWORD},
+    });
 
     // Establish Connection
     std::unique_ptr<sql::Connection> conn(driver->connect(url, properties));
