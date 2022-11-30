@@ -6,3 +6,6 @@ build_release
 
 # editor
 .vscode
+
+# credentials default headers
+forensicpp/include/forensicpp/db/credentials.h

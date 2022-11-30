@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.20)
 
 project(forensicpp)
 
-#set(CMAKE_CXX_COMPILER clang)
 set(CMAKE_CXX_STANDARD 17)
 set(VERSION_STRING "0.1")
 
@@ -16,6 +15,21 @@ get_target_property(FTXUI_COMPONENT_INCLUDES ftxui::component INTERFACE_INCLUDE_
 get_target_property(FTXUI_DOM_INCLUDES ftxui::dom INTERFACE_INCLUDE_DIRECTORIES)
 get_target_property(FTXUI_SCREEN_INCLUDES ftxui::screen INTERFACE_INCLUDE_DIRECTORIES)
 
+# Fetch MariaDB connector information
+execute_process(COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/credentials.sh
+    OUTPUT_VARIABLE DEFAULT_MARIADB_FORENSICK_PASSWORD
+)
+set(DEFAULT_MARIADB_FORENSICK_HOST 127.0.0.1)
+set(DEFAULT_MARIADB_FORENSICK_PORT 3306)
+set(DEFAULT_MARIADB_FORENSICK_DATABASE forensick)
+set(DEFAULT_MARIADB_FORENSICK_USER forensick)
+
+configure_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/forensicpp/db/credentials.h.in
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/forensicpp/db/credentials.h
+)
+
+# Build
 set(FORENSICPP_SRCS
     # ui
     src/forensicpp/ui/etl_component.cc
