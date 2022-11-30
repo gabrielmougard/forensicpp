@@ -26,3 +26,8 @@ forensicpp is an QT-based image analyser software including the following featur
 * Add many other features (for examples, https://github.com/zchee/cuda-sample)
 
 * Possibility to associate multiple workers with one client (OpenMPI ?) 
+
+# Dependencies
+
+* `libmysqlclient-dev` : mysql C API is required
+* `libmariadbc` and `libmariadbcpp` : the MariaDB C and C++ connectors (https://mariadb.com/docs/ent/connect/programming-languages/cpp/install/)

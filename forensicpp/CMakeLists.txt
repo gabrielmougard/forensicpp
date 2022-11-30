@@ -3,7 +3,6 @@ cmake_minimum_required(VERSION 3.20)
 project(forensicpp)
 
 #set(CMAKE_CXX_COMPILER clang)
-set(CMAKE_CXX_FLAGS_DEBUG_INIT "-g")
 set(CMAKE_CXX_STANDARD 17)
 set(VERSION_STRING "0.1")
 
@@ -18,25 +17,7 @@ get_target_property(FTXUI_DOM_INCLUDES ftxui::dom INTERFACE_INCLUDE_DIRECTORIES)
 get_target_property(FTXUI_SCREEN_INCLUDES ftxui::screen INTERFACE_INCLUDE_DIRECTORIES)
 
 set(FORENSICPP_SRCS
-    ${FTXUI_COMPONENT_INCLUDES}
-    ${FTXUI_DOM_INCLUDES}
-    ${FTXUI_SCREEN_INCLUDES}
     # ui
-    include/forensicpp/ui/etl_component.h
-    include/forensicpp/ui/etl_result_component.h
-    include/forensicpp/ui/main_component.h
-
-    include/forensicpp/ui/tabs/extract/etl_extract_component.h
-    include/forensicpp/ui/tabs/extract/data_source_component.h
-    include/forensicpp/ui/tabs/extract/data_summary_component.h
-    include/forensicpp/ui/tabs/extract/search_query_component.h
-
-    include/forensicpp/ui/tabs/transform/etl_transform_component.h
-
-    include/forensicpp/ui/tabs/load/etl_load_component.h
-
-    include/forensicpp/ui/tabs/plugins/etl_plugins_component.h
-    
     src/forensicpp/ui/etl_component.cc
     src/forensicpp/ui/etl_result_component.cc
     src/forensicpp/ui/main_component.cc
@@ -61,10 +42,16 @@ add_executable(forensicpp
 
 target_include_directories(forensicpp
     PUBLIC
-      $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        ${FTXUI_COMPONENT_INCLUDES}
+        ${FTXUI_DOM_INCLUDES}
+        ${FTXUI_SCREEN_INCLUDES}
 )
 
 target_link_libraries(forensicpp
+    # MariaDB C++ connector    
+    -lmariadbcpp
+    # ftxui
     ftxui::component
     ftxui::dom
     ftxui::screen
