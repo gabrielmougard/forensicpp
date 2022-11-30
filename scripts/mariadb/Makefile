@@ -86,8 +86,6 @@ mariadb-secrets:
 	printf "awesomeforensickpassword" | docker secret create mariadb_forensick_forensick_password -
 	printf "awesomerootpassword" | docker secret create mariadb_forensick_root_password -
 
-mariadb-init: mariadb-stop mariadb-make-data-dir mariadb-run mariadb-sleep10 mariadb-create-db  
-
 
 #Force mariadb to reinitialize everything which happens in the docker mariadb id db not initialized
 mariadb-delete-data-dir:
